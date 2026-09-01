@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "npm run build:css && npm run build:pages && node ./scripts/build-vercel.js",
+    "build:css": "tailwindcss -c tailwind.config.cjs -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.css --minify",
+    "build:pages": "node ./scripts/build-pages.js"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

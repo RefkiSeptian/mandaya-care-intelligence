@@ -1,0 +1,507 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Mandaya AI Priority</title><script>try{if(localStorage.getItem("mandaya-sidebar-open")==="true")document.documentElement.classList.add("sidebar-open-preload")}catch(e){}</script><link href="assets/css/tailwind.css?v=20260901-timeline-linked" rel="stylesheet"/><link href="assets/css/base.css?v=20260901-timeline-linked" rel="stylesheet"/></head><body data-page="ai-priority" class="bg-background font-body-base text-on-background min-h-screen"><aside class="app-sidebar" aria-label="Primary navigation">
+  <div class="app-sidebar-inner">
+    <div class="app-sidebar-main custom-scrollbar">
+      <div class="app-sidebar-brand">
+        <a class="app-logo hospital-logo" href="command_center_overview.html" data-path="overview" aria-label="Mandaya Royal Hospital PURI Command Center">
+          <span class="hospital-logo-frame">
+            <img class="hospital-logo-image" src="assets/images/mandaya_royal_hospital_PURI.png" alt="Mandaya Royal Hospital PURI" />
+          </span>
+        </a>
+        <button class="app-sidebar-toggle" type="button" data-sidebar-toggle aria-label="Toggle sidebar" aria-expanded="false">
+          <span class="material-symbols-outlined">menu_open</span>
+        </button>
+      </div>
+      <nav class="app-sidebar-nav">
+        <a class="sidebar-link" data-path="overview" href="command_center_overview.html">
+          <span class="material-symbols-outlined">grid_view</span>
+          <span class="sidebar-label">Overview</span>
+        </a>
+        <a class="sidebar-link" data-path="patients" href="patient_360_profile.html">
+          <span class="material-symbols-outlined">personal_injury</span>
+          <span class="sidebar-label">Patients</span>
+        </a>
+        <a class="sidebar-link" data-path="ai-priority" href="ai_priority_next_best_action.html">
+          <span class="material-symbols-outlined">psychology</span>
+          <span class="sidebar-label">AI Priority</span>
+        </a>
+        <a class="sidebar-link" data-path="follow-up" href="follow_up_workspace.html">
+          <span class="material-symbols-outlined">event_repeat</span>
+          <span class="sidebar-label">Follow-up</span>
+        </a>
+      </nav>
+    </div>
+    <div class="app-sidebar-footer">
+      <div class="sidebar-status">
+        <span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+        <div class="sidebar-status-copy">
+          <span class="sidebar-status-title">System Status</span>
+          <p class="sidebar-status-text">AI Orchestrator is actively monitoring 42 patient streams.</p>
+        </div>
+      </div>
+      <div class="sidebar-link sidebar-user" aria-label="Perawat Maya profile">
+        <img alt="Dummy profile photo for Perawat Maya" class="sidebar-avatar" src="assets/images/avatar-nurse-maya.png" />
+        <span class="sidebar-label">Perawat Maya</span>
+      </div>
+    </div>
+  </div>
+</aside><div class="app-content"><header class="site-header app-header h-12 bg-surface/80 backdrop-blur-xl border-b border-border-subtle z-40 flex items-center justify-between px-4 lg:px-6"><div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full w-96"><span class="material-symbols-outlined text-outline text-[20px]">search</span><input class="bg-transparent border-none outline-none text-sm w-full text-on-surface placeholder:text-outline" placeholder="Search patients, vitals, or records..." type="text"/></div><div class="flex items-center gap-3"><button class="relative text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span><span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span></button></div></header><main class="relative flex-1 bg-background"><div class="flex flex-col w-full px-8 pb-12">
+<div class="flex items-end justify-between w-full mb-8">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2 tracking-tight">AI Priority & Next-Best-Action</h1>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-2xl">Orkestrasi tindakan proaktif berdasarkan analisis risiko prediktif dan perilaku pasien.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors rounded-lg px-4 py-2 flex items-center gap-2 font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                Ekspor Data
+            </button>
+<button class="bg-primary hover:bg-primary-container text-on-primary transition-colors rounded-lg px-4 py-2 flex items-center gap-2 font-label-sm text-label-sm shadow-md">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+                Sinkronisasi AI
+            </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-6 mb-8">
+<div class="col-span-12 lg:col-span-8 flex items-center gap-4 bg-surface-container-low p-2 rounded-xl shadow-sm">
+<div class="flex-1 flex items-center gap-2 px-3 border-r border-surface-variant">
+<span class="material-symbols-outlined text-outline text-[18px]">filter_list</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Filter:</span>
+</div>
+<div class="flex items-center gap-2 px-3 border-r border-surface-variant">
+<select class="bg-transparent text-on-surface font-body-sm text-body-sm outline-none cursor-pointer appearance-none pr-6 relative">
+<option value="all">Semua Prioritas</option>
+<option value="high">Prioritas Tinggi</option>
+<option value="medium">Prioritas Sedang</option>
+<option value="low">Prioritas Rendah</option>
+</select>
+<span class="material-symbols-outlined text-outline text-[16px] absolute right-4 pointer-events-none">expand_more</span>
+</div>
+<div class="flex items-center gap-2 px-3 border-r border-surface-variant">
+<select class="bg-transparent text-on-surface font-body-sm text-body-sm outline-none cursor-pointer appearance-none pr-6 relative">
+<option value="all">Semua Kondisi</option>
+<option value="cardio">Kardiologi</option>
+<option value="neuro">Neurologi</option>
+<option value="onco">Onkologi</option>
+</select>
+<span class="material-symbols-outlined text-outline text-[16px] absolute right-4 pointer-events-none">expand_more</span>
+</div>
+<div class="flex items-center gap-2 px-3">
+<select class="bg-transparent text-on-surface font-body-sm text-body-sm outline-none cursor-pointer appearance-none pr-6 relative">
+<option value="all">Semua Kanal</option>
+<option value="app">Care Dokter App</option>
+<option value="wa">WhatsApp</option>
+<option value="call">Telepon</option>
+</select>
+<span class="material-symbols-outlined text-outline text-[16px] absolute right-4 pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 flex items-center gap-3 justify-end">
+<div class="flex flex-col items-center justify-center bg-error-container text-on-error-container px-4 py-2 rounded-lg shadow-sm min-w-[80px]">
+<span class="font-display-lg text-[24px] leading-none">12</span>
+<span class="font-label-bold text-[10px] uppercase tracking-wider mt-1">Tinggi</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-tertiary-fixed text-on-tertiary-fixed-variant px-4 py-2 rounded-lg shadow-sm min-w-[80px]">
+<span class="font-display-lg text-[24px] leading-none">25</span>
+<span class="font-label-bold text-[10px] uppercase tracking-wider mt-1">Sedang</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-mint-success/20 text-status-low px-4 py-2 rounded-lg shadow-sm min-w-[80px]">
+<span class="font-display-lg text-[24px] leading-none">8</span>
+<span class="font-label-bold text-[10px] uppercase tracking-wider mt-1">Rendah</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl overflow-hidden flex flex-col w-full relative z-10">
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50 border-b border-surface-variant">
+<th class="py-4 px-6 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider w-[20%]">Pasien</th>
+<th class="py-4 px-6 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider w-[20%]">Trigger / Alasan</th>
+<th class="py-4 px-6 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider w-[10%]">Risiko</th>
+<th class="py-4 px-6 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider w-[25%]">Next Best Action (AI)</th>
+<th class="py-4 px-6 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider w-[15%]">Kanal</th>
+<th class="py-4 px-6 font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider w-[10%]">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant/50">
+<tr class="hover:bg-surface-accent/30 transition-colors group relative cursor-pointer" onclick="toggleInsight('insight-1')">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-title-sm text-title-sm shadow-sm">
+                                    BW
+                                </div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">Budi Wijaya</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">RM-89210 • 58 thn</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-sm text-body-sm text-on-surface mb-1">Deviasi Tekanan Darah</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">trending_up</span>
+                                Sistolik > 160 mmHg selama 3 hari
+                            </div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-bold text-label-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                Tinggi
+                            </span>
+</td>
+<td class="py-4 px-6 relative">
+<div class="absolute inset-0 bg-gradient-to-r from-lavender-ai/20 to-transparent pointer-events-none group-hover:opacity-100 opacity-50 transition-opacity"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<div class="font-title-sm text-title-sm text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                                    Jadwalkan Telekonsultasi
+                                </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Eskalasi ke Dr. Handoko (Kardiologi)</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-[#25D366]/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-[#25D366]">chat</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">WhatsApp</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm px-3 py-1.5 rounded-lg shadow-sm transition-colors flex items-center gap-1">
+                                Eksekusi
+                                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<tr class="hidden bg-lavender-ai/30 border-b border-primary/10" id="insight-1">
+<td class="p-0" colspan="6">
+<div class="px-8 py-6 flex gap-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+<div class="w-1 bg-primary rounded-full shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+<h4 class="font-title-sm text-title-sm text-on-surface">Analisis Prediktif Mandaya AI</h4>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant leading-relaxed mb-4 max-w-4xl">
+                                        Berdasarkan pola historis, pasien menunjukkan peningkatan risiko krisis hipertensi (Probabilitas: 82%) dalam 48 jam ke depan. <br/>
+<strong>Rasional:</strong> Pasien menunjukkan penurunan aktivitas di aplikasi Care Dokter selama 7 hari terakhir, mengindikasikan kemungkinan ketidakpatuhan konsumsi obat yang bertepatan dengan lonjakan pembacaan IoT tensimeter harian.
+                                    </p>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest p-3 rounded-lg shadow-sm flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">history</span>
+<div>
+<div class="font-label-bold text-[10px] text-on-surface-variant uppercase">Riwayat Serupa</div>
+<div class="font-body-sm text-body-sm text-on-surface">Des 2023 - Krisis Tercegah</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg shadow-sm flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">medication</span>
+<div>
+<div class="font-label-bold text-[10px] text-on-surface-variant uppercase">Obat Aktif</div>
+<div class="font-body-sm text-body-sm text-on-surface">Amlodipine 10mg</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-accent/30 transition-colors group cursor-pointer" onclick="toggleInsight('insight-billing')">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-title-sm text-title-sm shadow-sm">
+                                    AS
+                                </div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">Anita Sari</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">MRN-992103 • 45 thn</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-sm text-body-sm text-on-surface mb-1">Billing Care Plus belum tervalidasi</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">hourglass_top</span>
+                                H+7 tersisa 1 hari
+                            </div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-bold text-label-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                Tinggi
+                            </span>
+</td>
+<td class="py-4 px-6 relative">
+<div class="absolute inset-0 bg-gradient-to-r from-lavender-ai/20 to-transparent pointer-events-none group-hover:opacity-100 opacity-50 transition-opacity"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<div class="font-title-sm text-title-sm text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                                    Ingatkan validasi billing
+                                </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Follow-up oleh PEO sebelum window H+7 berakhir</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary">smartphone</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Care Dokter / WA</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm px-3 py-1.5 rounded-lg shadow-sm transition-colors flex items-center gap-1">
+                                Eksekusi
+                                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<tr class="hidden bg-lavender-ai/30 border-b border-primary/10" id="insight-billing">
+<td class="p-0" colspan="6">
+<div class="px-8 py-6 flex gap-6 relative overflow-hidden">
+<div class="w-1 bg-primary rounded-full shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+<h4 class="font-title-sm text-title-sm text-on-surface">Mengapa pasien ini diprioritaskan?</h4>
+</div>
+<ul class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4 list-disc pl-5">
+<li>Transaksi dilakukan 6 hari lalu.</li>
+<li>Billing Care Plus belum tervalidasi.</li>
+<li>Window validasi H+7 berakhir besok.</li>
+</ul>
+<div class="flex flex-wrap gap-3">
+<button class="bg-primary hover:bg-primary-container text-on-primary px-3 py-2 rounded-lg font-label-bold text-label-bold transition-colors">Kirim Reminder</button>
+<button class="bg-surface hover:bg-surface-container border border-primary text-primary px-3 py-2 rounded-lg font-label-bold text-label-bold transition-colors">Hubungi Pasien</button>
+<button class="bg-surface hover:bg-surface-container border border-border-subtle text-on-surface px-3 py-2 rounded-lg font-label-bold text-label-bold transition-colors">Tandai Sudah Validasi</button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-accent/30 transition-colors group cursor-pointer" onclick="toggleInsight('insight-reward')">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-title-sm text-title-sm shadow-sm">
+                                    BH
+                                </div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">Budi Hartono</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">RM-443211 • 62 thn</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-sm text-body-sm text-on-surface mb-1">Pengiriman reward gagal</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-status-medium">local_shipping</span>
+                                Alamat tidak valid
+                            </div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-bold text-label-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-medium"></span>
+                                Sedang
+                            </span>
+</td>
+<td class="py-4 px-6 relative">
+<div class="absolute inset-0 bg-gradient-to-r from-lavender-ai/10 to-transparent pointer-events-none group-hover:opacity-100 opacity-50 transition-opacity"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<div class="font-title-sm text-title-sm text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                                    Konfirmasi alamat pasien
+                                </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Reward hanya masuk prioritas karena journey terhenti</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-[#25D366]/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-[#25D366]">chat</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">WhatsApp</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<button class="bg-surface hover:bg-surface-container-high text-primary border border-primary/20 font-label-sm text-label-sm px-3 py-1.5 rounded-lg shadow-sm transition-colors flex items-center gap-1">
+                                Delegasi
+                                <span class="material-symbols-outlined text-[16px]">person_add</span>
+</button>
+</td>
+</tr>
+<tr class="hidden bg-lavender-ai/30 border-b border-primary/10" id="insight-reward">
+<td class="p-0" colspan="6">
+<div class="px-8 py-6 flex gap-6 relative overflow-hidden">
+<div class="w-1 bg-primary rounded-full shrink-0 opacity-50"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[18px]">psychology</span>
+<h4 class="font-label-bold text-label-bold text-on-surface uppercase tracking-wider">AI Insight</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+                                        Redemption normal tidak dinaikkan menjadi alert. Item ini masuk prioritas karena pengiriman Mandaya Care Plus Tumbler gagal dan membutuhkan validasi alamat oleh PEO.
+                                    </p>
+<div class="grid grid-cols-3 gap-3 max-w-3xl">
+<div class="bg-surface-container-lowest p-3 rounded-lg shadow-sm">
+<div class="font-label-bold text-[10px] text-on-surface-variant uppercase">Reward</div>
+<div class="font-body-sm text-body-sm text-on-surface">Care Plus Tumbler</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg shadow-sm">
+<div class="font-label-bold text-[10px] text-on-surface-variant uppercase">Metode</div>
+<div class="font-body-sm text-body-sm text-on-surface">Kirim ke alamat</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg shadow-sm">
+<div class="font-label-bold text-[10px] text-on-surface-variant uppercase">PIC</div>
+<div class="font-body-sm text-body-sm text-on-surface">PEO</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-accent/30 transition-colors group cursor-pointer" onclick="toggleInsight('insight-2')">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-title-sm text-title-sm shadow-sm relative overflow-hidden">
+<img alt="Pasien" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply" data-alt="A small, professional portrait photo of an Indonesian woman in her late 40s. Soft lighting, neutral background, corporate healthcare aesthetic. She looks calm and approachable. Cool, clean color palette aligning with Mandaya Care UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBavJ2XCU-aqOt_n_lFuWZWbR-zd_F7MTii204DsZ-F9TfLFmuTisQVMp7I--NPvBEH7cuVoAP1BRbSdWe-wzD_TVOGykE5HVClpk5u2mYXqNxTy9F-bPM5rxI-Hvlup0QdM81DdRsbLMAv8uq1JW2f5Y5pdWmfgcvJl1G2okkyOKV4ZVW5mxXej6rlKJhno96Ln_2uYHb5XsAeWcYdU5Vk2JORRrUWPcpi1a8wWVDK60Zn26u097PhcA"/>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">Siti Rahmawati</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">RM-44218 • 42 thn</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-sm text-body-sm text-on-surface mb-1">Follow-up Pasca Operasi</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-status-medium">timer</span>
+                                H+3 Cholecystectomy
+                            </div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-bold text-label-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-medium"></span>
+                                Sedang
+                            </span>
+</td>
+<td class="py-4 px-6 relative">
+<div class="absolute inset-0 bg-gradient-to-r from-lavender-ai/10 to-transparent pointer-events-none group-hover:opacity-100 opacity-50 transition-opacity"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<div class="font-title-sm text-title-sm text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                                    Kirim Kuesioner Nyeri
+                                </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Otomatisasi form VAS via App</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary">smartphone</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Care Dokter</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm px-3 py-1.5 rounded-lg shadow-sm transition-colors flex items-center gap-1">
+                                Eksekusi
+                                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<tr class="hidden bg-lavender-ai/30 border-b border-primary/10" id="insight-2">
+<td class="p-0" colspan="6">
+<div class="px-8 py-6 flex gap-6 relative overflow-hidden">
+<div class="w-1 bg-primary rounded-full shrink-0 opacity-50"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[18px]">psychology</span>
+<h4 class="font-label-bold text-label-bold text-on-surface uppercase tracking-wider">AI Insight</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                        Pasien H+3 operasi laparoskopi umumnya mengalami puncak nyeri sedang. Mengirimkan kuesioner VAS (Visual Analog Scale) secara proaktif dapat mencegah kunjungan IGD yang tidak perlu.
+                                    </p>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-accent/30 transition-colors group cursor-pointer" onclick="toggleInsight('insight-3')">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-title-sm text-title-sm shadow-sm">
+                                    AP
+                                </div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">Ahmad Putra</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">RM-11092 • 65 thn</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-sm text-body-sm text-on-surface mb-1">Jadwal Kontrol Rutin</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">event</span>
+                                Terlewat 2 minggu
+                            </div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-mint-success/30 text-status-low font-label-bold text-label-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-low"></span>
+                                Rendah
+                            </span>
+</td>
+<td class="py-4 px-6 relative">
+<div class="absolute inset-0 bg-gradient-to-r from-lavender-ai/5 to-transparent pointer-events-none group-hover:opacity-100 opacity-50 transition-opacity"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<div class="font-title-sm text-title-sm text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                                    Panggilan Pengingat
+                                </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Tawarkan layanan Homecare</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">call</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Telepon (CS)</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<button class="bg-surface hover:bg-surface-container-high text-primary border border-primary/20 font-label-sm text-label-sm px-3 py-1.5 rounded-lg shadow-sm transition-colors flex items-center gap-1">
+                                Delegasi
+                                <span class="material-symbols-outlined text-[16px]">person_add</span>
+</button>
+</td>
+</tr>
+<tr class="hidden bg-lavender-ai/30 border-b border-primary/10" id="insight-3">
+<td class="p-0" colspan="6">
+<div class="px-8 py-6 flex gap-6 relative overflow-hidden">
+<div class="w-1 bg-primary rounded-full shrink-0 opacity-50"></div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[18px]">psychology</span>
+<h4 class="font-label-bold text-label-bold text-on-surface uppercase tracking-wider">AI Insight</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                        Pasien geriatri dengan mobilitas terbatas. Probabilitas kehadiran kontrol on-site rendah (15%). Menawarkan layanan homecare pengambilan sampel darah dapat meningkatkan kepatuhan perawatan jangka panjang.
+                                    </p>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-surface-container p-4 border-t border-surface-variant flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Menampilkan 1-5 dari 47 rekomendasi aktif</span>
+<div class="flex gap-2">
+<button class="p-1 rounded text-outline hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+<button class="p-1 rounded text-primary bg-primary/10 hover:bg-primary/20 transition-colors"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div></main></div><script src="assets/js/pages.js?v=20260901-timeline-linked"></script><script src="assets/js/app.js?v=20260901-timeline-linked"></script></body></html>

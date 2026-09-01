@@ -1,0 +1,455 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Mandaya Command Center</title><script>try{if(localStorage.getItem("mandaya-sidebar-open")==="true")document.documentElement.classList.add("sidebar-open-preload")}catch(e){}</script><link href="assets/css/tailwind.css?v=20260901-timeline-linked" rel="stylesheet"/><link href="assets/css/base.css?v=20260901-timeline-linked" rel="stylesheet"/></head><body data-page="overview" class="bg-background font-body-base text-on-background min-h-screen"><aside class="app-sidebar" aria-label="Primary navigation">
+  <div class="app-sidebar-inner">
+    <div class="app-sidebar-main custom-scrollbar">
+      <div class="app-sidebar-brand">
+        <a class="app-logo hospital-logo" href="command_center_overview.html" data-path="overview" aria-label="Mandaya Royal Hospital PURI Command Center">
+          <span class="hospital-logo-frame">
+            <img class="hospital-logo-image" src="assets/images/mandaya_royal_hospital_PURI.png" alt="Mandaya Royal Hospital PURI" />
+          </span>
+        </a>
+        <button class="app-sidebar-toggle" type="button" data-sidebar-toggle aria-label="Toggle sidebar" aria-expanded="false">
+          <span class="material-symbols-outlined">menu_open</span>
+        </button>
+      </div>
+      <nav class="app-sidebar-nav">
+        <a class="sidebar-link" data-path="overview" href="command_center_overview.html">
+          <span class="material-symbols-outlined">grid_view</span>
+          <span class="sidebar-label">Overview</span>
+        </a>
+        <a class="sidebar-link" data-path="patients" href="patient_360_profile.html">
+          <span class="material-symbols-outlined">personal_injury</span>
+          <span class="sidebar-label">Patients</span>
+        </a>
+        <a class="sidebar-link" data-path="ai-priority" href="ai_priority_next_best_action.html">
+          <span class="material-symbols-outlined">psychology</span>
+          <span class="sidebar-label">AI Priority</span>
+        </a>
+        <a class="sidebar-link" data-path="follow-up" href="follow_up_workspace.html">
+          <span class="material-symbols-outlined">event_repeat</span>
+          <span class="sidebar-label">Follow-up</span>
+        </a>
+      </nav>
+    </div>
+    <div class="app-sidebar-footer">
+      <div class="sidebar-status">
+        <span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+        <div class="sidebar-status-copy">
+          <span class="sidebar-status-title">System Status</span>
+          <p class="sidebar-status-text">AI Orchestrator is actively monitoring 42 patient streams.</p>
+        </div>
+      </div>
+      <div class="sidebar-link sidebar-user" aria-label="Perawat Maya profile">
+        <img alt="Dummy profile photo for Perawat Maya" class="sidebar-avatar" src="assets/images/avatar-nurse-maya.png" />
+        <span class="sidebar-label">Perawat Maya</span>
+      </div>
+    </div>
+  </div>
+</aside><div class="app-content"><header class="site-header app-header h-12 bg-surface/80 backdrop-blur-xl border-b border-border-subtle z-40 flex items-center justify-between px-4 lg:px-6"><div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full w-96"><span class="material-symbols-outlined text-outline text-[20px]">search</span><input class="bg-transparent border-none outline-none text-sm w-full text-on-surface placeholder:text-outline" placeholder="Search patients, vitals, or records..." type="text"/></div><div class="flex items-center gap-3"><button class="relative text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span><span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span></button></div></header><main class="relative flex-1 bg-background"><div class="flex flex-1 flex-col">
+<div class="dashboard-main">
+<!-- Top Summary Cards -->
+<div class="section-cards grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-6">
+<div class="section-card metric-card metric-primary border-l-4 border-l-primary bg-surface-container-lowest">
+<div class="flex items-start justify-between gap-4">
+<div>
+<p class="section-card-label">Total Pasien Dipantau</p>
+<p class="section-card-value text-primary">1,240</p>
+</div>
+<span class="section-card-icon bg-primary/10 text-primary material-symbols-outlined">groups</span>
+</div>
+<div class="metric-sparkline" aria-hidden="true"><span style="height: 34%"></span><span style="height: 48%"></span><span style="height: 42%"></span><span style="height: 64%"></span><span style="height: 72%"></span><span style="height: 86%"></span></div>
+<div class="section-card-footer text-status-low">
+<span class="material-symbols-outlined">trending_up</span>
+<span>+2.4% minggu ini</span>
+</div>
+</div>
+<div class="section-card metric-card metric-danger border-l-4 border-l-error bg-pink-alert/30">
+<div class="flex items-start justify-between gap-4">
+<div>
+<p class="section-card-label">Prioritas Tinggi</p>
+<p class="section-card-value text-error">42</p>
+</div>
+<span class="section-card-icon bg-error/10 text-error material-symbols-outlined">priority_high</span>
+</div>
+<div class="metric-progress"><span style="width: 68%"></span></div>
+<div class="section-card-footer text-on-surface-variant">
+<span class="material-symbols-outlined">schedule</span>
+<span>Butuh perhatian segera</span>
+</div>
+</div>
+<div class="section-card metric-card metric-warning border-l-4 border-l-status-medium bg-surface-container-lowest">
+<div class="flex items-start justify-between gap-4">
+<div>
+<p class="section-card-label">Follow-up Hari Ini</p>
+<p class="section-card-value text-on-surface">15</p>
+</div>
+<span class="section-card-icon bg-status-medium/10 text-status-medium material-symbols-outlined">event_available</span>
+</div>
+<div class="metric-progress"><span style="width: 53%"></span></div>
+<div class="section-card-footer text-status-medium">
+<span class="material-symbols-outlined">pending_actions</span>
+<span>8 selesai</span>
+</div>
+</div>
+<div class="section-card metric-card metric-ai border-l-4 border-l-primary bg-lavender-ai/30">
+<div class="flex items-start justify-between gap-4">
+<div>
+<p class="section-card-label">Alert Care Plan</p>
+<p class="section-card-value text-primary">8</p>
+</div>
+<span class="section-card-icon bg-primary/10 text-primary material-symbols-outlined">auto_awesome</span>
+</div>
+<div class="metric-ai-pulse"><span></span><span></span><span></span></div>
+<div class="section-card-footer text-on-surface-variant">
+<span class="text-primary font-label-bold text-[10px]">AI INSIGHT</span>
+
+</div>
+</div>
+</div>
+<!-- Main Content Area Grid -->
+<div class="grid grid-cols-12 gap-6 px-4 lg:px-6">
+<!-- Left Column (Wider) -->
+<div class="col-span-12 xl:col-span-8 flex flex-col gap-6">
+<!-- Patients Table -->
+<div class="priority-worklist-panel">
+<div class="priority-worklist-header">
+<div class="flex items-center gap-3">
+<span class="worklist-header-icon material-symbols-outlined">personal_injury</span>
+<div>
+<h2 class="font-title-sm text-on-surface">Pasien Prioritas Hari Ini</h2>
+<p class="text-[12px] text-on-surface-variant">Queue pasien yang menunggu action dari perawat</p>
+</div>
+</div>
+<button class="worklist-link" type="button">
+              Lihat Semua
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="worklist-table-wrap overflow-x-auto">
+<table class="priority-worklist-table w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-bright">
+<th class="py-3 px-5 font-label-bold text-on-surface-variant uppercase tracking-wider border-b border-border-subtle w-1/4">Nama Pasien</th>
+<th class="py-3 px-5 font-label-bold text-on-surface-variant uppercase tracking-wider border-b border-border-subtle w-1/6">Status</th>
+<th class="py-3 px-5 font-label-bold text-on-surface-variant uppercase tracking-wider border-b border-border-subtle w-1/6">Risiko</th>
+<th class="py-3 px-5 font-label-bold text-on-surface-variant uppercase tracking-wider border-b border-border-subtle w-1/4">Next Best Action</th>
+<th class="py-3 px-5 font-label-bold text-on-surface-variant uppercase tracking-wider border-b border-border-subtle w-1/6 text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle">
+<!-- Patient Row 1 -->
+<tr class="priority-row group">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<div class="priority-avatar avatar-warm">AS</div>
+<div>
+<div class="font-label-bold text-on-surface text-sm">Anita Sari</div>
+<div class="font-body-sm text-on-surface-variant text-[12px]">RM: 882910 • 45Th</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-5">
+<span class="status-chip chip-blue">Perlu Follow-up</span>
+</td>
+<td class="py-4 px-5">
+<div class="risk-chip risk-high">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-bold text-[12px]">Tinggi</span>
+</div>
+</td>
+<td class="py-4 px-5">
+<div class="nba-pill nba-ai">
+<span class="material-symbols-outlined text-primary text-[14px]">auto_awesome</span>
+<span class="font-body-sm text-on-surface text-[12px] truncate max-w-[150px]">Kirim Reminder Lab via WA</span>
+</div>
+</td>
+<td class="py-4 px-5 text-right">
+<button class="queue-action" type="button" aria-label="Chat Anita Sari">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+</td>
+</tr>
+<!-- Patient Row 2 -->
+<tr class="priority-row group">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<div class="priority-avatar avatar-blue">BH</div>
+<div>
+<div class="font-label-bold text-on-surface text-sm">Budi Hartono</div>
+<div class="font-body-sm text-on-surface-variant text-[12px]">RM: 443211 • 62Th</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-5">
+<span class="status-chip chip-red">Hasil Abnormal</span>
+</td>
+<td class="py-4 px-5">
+<div class="risk-chip risk-high">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-bold text-[12px]">Tinggi</span>
+</div>
+</td>
+<td class="py-4 px-5">
+<div class="nba-pill nba-ai">
+<span class="material-symbols-outlined text-primary text-[14px]">auto_awesome</span>
+<span class="font-body-sm text-on-surface text-[12px] truncate max-w-[150px]">Eskalasi ke Dr. Rina (Sp.PD)</span>
+</div>
+</td>
+<td class="py-4 px-5 text-right">
+<button class="queue-action" type="button" aria-label="Call Budi Hartono">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</button>
+</td>
+</tr>
+<!-- Patient Row 3 -->
+<tr class="priority-row group">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<div class="priority-avatar avatar-muted">CD</div>
+<div>
+<div class="font-label-bold text-on-surface text-sm">Citra Dewi</div>
+<div class="font-body-sm text-on-surface-variant text-[12px]">RM: 112998 • 28Th</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-5">
+<span class="status-chip chip-muted">Jadwal Kontrol</span>
+</td>
+<td class="py-4 px-5">
+<div class="risk-chip risk-medium">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-bold text-[12px]">Sedang</span>
+</div>
+</td>
+<td class="py-4 px-5">
+<div class="nba-pill nba-schedule">
+<span class="material-symbols-outlined text-outline text-[14px]">schedule</span>
+<span class="font-body-sm text-on-surface text-[12px] truncate max-w-[150px]">Konfirmasi Jadwal H-1</span>
+</div>
+</td>
+<td class="py-4 px-5 text-right">
+<button class="queue-action" type="button" aria-label="Chat Citra Dewi">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="action-analytics-panel">
+<div class="action-panel-header">
+<div class="flex items-center gap-3">
+<span class="action-panel-icon material-symbols-outlined">donut_large</span>
+<div>
+<h3 class="font-title-sm text-on-surface">Kanal Aksi</h3>
+<p class="text-[12px] text-on-surface-variant">Distribusi follow-up 7 hari terakhir</p>
+</div>
+</div>
+<span class="action-panel-badge">342 aksi</span>
+</div>
+<div class="action-chart-layout">
+<div class="action-donut" aria-label="Kanal aksi chart">
+<svg class="donut-svg" viewBox="0 0 120 120">
+<path class="donut-segment segment-whatsapp" d="M 60 18 A 42 42 0 1 1 26.02 84.69" fill="none" stroke-linecap="butt" stroke-width="18"></path>
+<path class="donut-segment segment-phone" d="M 26.02 84.69 A 42 42 0 0 1 35.31 26.02" fill="none" stroke-linecap="butt" stroke-width="18"></path>
+<path class="donut-segment segment-email" d="M 35.31 26.02 A 42 42 0 0 1 60 18" fill="none" stroke-linecap="butt" stroke-width="18"></path>
+</svg>
+<div class="donut-center">
+<span>Total</span>
+<strong>342</strong>
+<small>+18 minggu ini</small>
+</div>
+</div>
+<div class="action-channel-list">
+<div class="channel-item channel-primary">
+<span class="channel-dot"></span>
+<div>
+<strong>WhatsApp API</strong>
+<p>Reminder & chatbot</p>
+</div>
+<b>65%</b>
+</div>
+<div class="channel-item channel-warning">
+<span class="channel-dot"></span>
+<div>
+<strong>Telepon</strong>
+<p>Manual follow-up</p>
+</div>
+<b>25%</b>
+</div>
+<div class="channel-item channel-muted">
+<span class="channel-dot"></span>
+<div>
+<strong>Email/Lainnya</strong>
+<p>Fallback channel</p>
+</div>
+<b>10%</b>
+</div>
+</div>
+</div>
+</div>
+<div class="ai-insight-panel">
+<div class="ai-signal-field"></div>
+<div class="ai-panel-header">
+<div class="flex items-center gap-3">
+<span class="ai-panel-icon material-symbols-outlined">psychology</span>
+<div>
+<h3 class="font-title-sm text-primary">Insight AI Hari Ini</h3>
+<p class="text-[12px] text-on-surface-variant">2 pola baru butuh tindak lanjut</p>
+</div>
+</div>
+<span class="ai-live-pill"><span></span>Live</span>
+</div>
+<div class="ai-insight-list">
+<article class="ai-insight-card is-priority">
+<div class="insight-card-top">
+<span class="insight-severity">Prioritas Tinggi</span>
+<span class="insight-confidence">Confidence 89%</span>
+</div>
+<p>Terdapat lonjakan <strong>15%</strong> pada pasien diabetes yang melewatkan jadwal HbA1c bulan ini.</p>
+<div class="insight-meter"><span style="width: 89%"></span></div>
+<button class="insight-link" type="button">
+                   Buat Broadcast Reminder <span class="material-symbols-outlined text-[15px]">chevron_right</span>
+</button>
+</article>
+<article class="ai-insight-card">
+<div class="insight-card-top">
+<span class="insight-severity">Pola Terdeteksi</span>
+<span class="insight-confidence">Confidence 76%</span>
+</div>
+<p>4 pasien paska-operasi jantung melaporkan kelelahan ringan pagi ini via bot WA.</p>
+<div class="insight-meter"><span style="width: 76%"></span></div>
+<button class="insight-link" type="button">
+                   Tinjau Log Chat <span class="material-symbols-outlined text-[15px]">chevron_right</span>
+</button>
+</article>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Alerts & Activity) -->
+<div class="col-span-12 xl:col-span-4 flex flex-col gap-6">
+<!-- Alerts Panel -->
+<div class="alerts-panel">
+<div class="alerts-panel-glow"></div>
+<div class="alerts-header">
+<div class="flex items-center gap-3">
+<span class="alerts-header-icon material-symbols-outlined">notifications_active</span>
+<div>
+<h3 class="font-title-sm text-on-surface">Alerts</h3>
+<p class="text-[12px] text-on-surface-variant">Sinyal operasional yang perlu dipantau</p>
+</div>
+</div>
+<span class="alerts-count">3 Baru</span>
+</div>
+<div class="alerts-summary">
+<div>
+<span>Open SLA</span>
+<strong>12</strong>
+</div>
+<div>
+<span>Medis</span>
+<strong>5</strong>
+</div>
+<div>
+<span>Sistem</span>
+<strong>45</strong>
+</div>
+</div>
+<div class="alerts-list">
+<article class="alert-card alert-critical">
+<span class="alert-rail"></span>
+<div class="alert-icon-wrap">
+<span class="material-symbols-outlined">priority_high</span>
+</div>
+<div class="alert-copy">
+<div class="alert-meta">
+<span>Tenggat Waktu</span>
+<time>10mnt lalu</time>
+</div>
+<p><strong>12 pasien</strong> risiko tinggi belum difollow-up melewati batas SLA 4 jam.</p>
+<div class="alert-footer">
+<span class="alert-tag">SLA breach</span>
+<button class="alert-action" type="button">Tugaskan ulang <span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+</article>
+<article class="alert-card alert-warning">
+<span class="alert-rail"></span>
+<div class="alert-icon-wrap">
+<span class="material-symbols-outlined">science</span>
+</div>
+<div class="alert-copy">
+<div class="alert-meta">
+<span>Update Medis</span>
+<time>45mnt lalu</time>
+</div>
+<p><strong>5 hasil lab baru</strong> tersedia untuk pasien pantauan. 2 membutuhkan review dokter.</p>
+<div class="alert-footer">
+<span class="alert-tag">Review dokter</span>
+<button class="alert-action" type="button">Lihat Hasil <span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+</article>
+<article class="alert-card alert-info">
+<span class="alert-rail"></span>
+<div class="alert-icon-wrap">
+<span class="material-symbols-outlined">sync_saved_locally</span>
+</div>
+<div class="alert-copy">
+<div class="alert-meta">
+<span>Sistem</span>
+<time>2jam lalu</time>
+</div>
+<p>Sinkronisasi HIS harian selesai. <strong>45 profil pasien</strong> diperbarui.</p>
+<div class="alert-footer">
+<span class="alert-tag">Data synced</span>
+<button class="alert-action" type="button">Detail Sync <span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="support-ops-panel">
+<div class="support-ops-header">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<div>
+<h3 class="font-title-sm text-on-surface">Billing & Reward Ops</h3>
+<p class="text-[12px] text-on-surface-variant">Sinyal pendukung Care Plus</p>
+</div>
+</div>
+<div class="support-ops-grid">
+<div>
+<span>Billing validasi</span>
+<strong>18</strong>
+<small>perlu dicek</small>
+</div>
+<div>
+<span>H+7 kritis</span>
+<strong>6</strong>
+<small>deadline dekat</small>
+</div>
+<div>
+<span>Reward issue</span>
+<strong>4</strong>
+<small>butuh follow-up</small>
+</div>
+</div>
+</div>
+<!-- Quick Image Visual / Ad -->
+<div class="bg-primary rounded-xl p-6 shadow-sm relative overflow-hidden flex flex-col justify-end min-h-[200px]">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay" data-alt="Abstract soft glowing medical data visualization with light blue and purple nodes connecting in a 3D space, high quality, modern healthcare tech aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCorFY_4wj2-l1nySNtyPupzOKok4lMAxc9rcl6sutooQ23qb3aJzlgvgiUoaSW6i-3meFnj6thHlbGxp2GNib_H_lm5w_FZ9LOoE8hWgXi-UnI2PqbWM_IgeIbAb1XygOSDDlDCPdRmnOHzFGgqzWscAvQPRdYwl4tgBssBa0su_1uVJnrbWhH-X661ilp8_AtzP482oI91S5Nxvy7eXrpHa_YtdVRtnFP2DSUHsHtDk1tQnW86SMRLA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
+<div class="relative z-10">
+<span class="bg-white/20 text-white backdrop-blur-md px-2 py-1 rounded text-[10px] font-label-bold uppercase tracking-wider mb-2 inline-block">Mandaya Care+</span>
+<h4 class="font-title-sm text-white mb-2">Kapasitas ICU Tersedia</h4>
+<p class="font-body-sm text-white/80 text-[12px] mb-4">Pemantauan real-time ketersediaan bed.</p>
+<button class="w-full bg-white text-primary font-label-bold text-[13px] py-2 rounded-lg hover:bg-surface transition-colors shadow-sm">Cek Dasbor Kapasitas</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div><script src="assets/js/pages.js?v=20260901-timeline-linked"></script><script src="assets/js/app.js?v=20260901-timeline-linked"></script></body></html>

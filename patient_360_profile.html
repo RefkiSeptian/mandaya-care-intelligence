@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Mandaya Patients</title>
+    <script>
+      try {
+        if (localStorage.getItem("mandaya-sidebar-open") === "true") {
+          document.documentElement.classList.add("sidebar-open-preload");
+        }
+      } catch (e) {}
+    </script>
+    <link href="assets/css/tailwind.css?v=20260901-timeline-linked" rel="stylesheet" />
+    <link href="assets/css/base.css?v=20260901-timeline-linked" rel="stylesheet" />
+  </head>
+  <body data-page="patients" class="bg-background font-body-base text-on-background min-h-screen">
+    <aside class="app-sidebar" aria-label="Primary navigation">
+      <div class="app-sidebar-inner">
+        <div class="app-sidebar-main custom-scrollbar">
+          <div class="app-sidebar-brand">
+            <a class="app-logo hospital-logo" href="command_center_overview.html" data-path="overview" aria-label="Mandaya Royal Hospital PURI Command Center">
+              <span class="hospital-logo-frame">
+                <img class="hospital-logo-image" src="assets/images/mandaya_royal_hospital_PURI.png" alt="Mandaya Royal Hospital PURI" />
+              </span>
+            </a>
+            <button class="app-sidebar-toggle" type="button" data-sidebar-toggle aria-label="Toggle sidebar" aria-expanded="false">
+              <span class="material-symbols-outlined">menu_open</span>
+            </button>
+          </div>
+          <nav class="app-sidebar-nav">
+            <a class="sidebar-link" data-path="overview" href="command_center_overview.html">
+              <span class="material-symbols-outlined">grid_view</span>
+              <span class="sidebar-label">Overview</span>
+            </a>
+            <a class="sidebar-link" data-path="patients" href="patient_360_profile.html">
+              <span class="material-symbols-outlined">personal_injury</span>
+              <span class="sidebar-label">Patients</span>
+            </a>
+            <a class="sidebar-link" data-path="ai-priority" href="ai_priority_next_best_action.html">
+              <span class="material-symbols-outlined">psychology</span>
+              <span class="sidebar-label">AI Priority</span>
+            </a>
+            <a class="sidebar-link" data-path="follow-up" href="follow_up_workspace.html">
+              <span class="material-symbols-outlined">event_repeat</span>
+              <span class="sidebar-label">Follow-up</span>
+            </a>
+          </nav>
+        </div>
+        <div class="app-sidebar-footer">
+          <div class="sidebar-status">
+            <span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+            <div class="sidebar-status-copy">
+              <span class="sidebar-status-title">System Status</span>
+              <p class="sidebar-status-text">AI Orchestrator is actively monitoring 42 patient streams.</p>
+            </div>
+          </div>
+          <div class="sidebar-link sidebar-user" aria-label="Perawat Maya profile">
+            <img alt="Dummy profile photo for Perawat Maya" class="sidebar-avatar" src="assets/images/avatar-nurse-maya.png" />
+            <span class="sidebar-label">Perawat Maya</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="app-content">
+      <header class="site-header app-header h-12 bg-surface/80 backdrop-blur-xl border-b border-border-subtle z-40 flex items-center justify-between px-4 lg:px-6">
+        <div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full w-96">
+          <span class="material-symbols-outlined text-outline text-[20px]">search</span>
+          <input class="bg-transparent border-none outline-none text-sm w-full text-on-surface placeholder:text-outline" placeholder="Search patients, vitals, or records..." type="text" />
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="relative text-on-surface-variant hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+          </button>
+        </div>
+      </header>
+      <main class="relative flex-1 bg-background">
+        <div class="patients-page flex flex-col w-full min-h-full p-6 lg:p-10 gap-6">
+          <div class="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Patient Registry</p>
+              <h1 class="font-display-lg text-display-lg text-on-background">Patients</h1>
+              <p class="text-on-surface-variant mt-2 max-w-2xl">Daftar pasien yang sedang dipantau Mandaya Care. Pilih pasien untuk membuka ringkasan Patient 360 dan next best action.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <button class="patients-filter is-active" type="button">Semua</button>
+              <button class="patients-filter" type="button">Prioritas Tinggi</button>
+              <button class="patients-filter" type="button">Follow-up</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-12 gap-6">
+            <section class="col-span-12 xl:col-span-7 bg-surface-container-lowest rounded-2xl border border-border-subtle shadow-sm overflow-hidden">
+              <div class="flex items-center justify-between gap-4 px-6 py-5 border-b border-border-subtle">
+                <div>
+                  <h2 class="font-title-sm text-title-sm text-on-background">Daftar Pasien</h2>
+                  <p class="text-sm text-on-surface-variant mt-1">5 pasien aktif dalam pemantauan hari ini</p>
+                </div>
+                <button class="h-10 w-10 rounded-full bg-primary text-on-primary inline-flex items-center justify-center" type="button" aria-label="Tambah pasien">
+                  <span class="material-symbols-outlined text-[20px]">add</span>
+                </button>
+              </div>
+              <div class="patient-list">
+                <button class="patient-row is-active" type="button" data-patient-id="anita" aria-pressed="true">
+                  <span class="patient-initials bg-blue-50 text-primary">AS</span>
+                  <span class="patient-copy">
+                    <span class="patient-name">Anita Sari</span>
+                    <span class="patient-meta">MRN-992103 • 45Th • Perempuan</span>
+                  </span>
+                  <span class="patient-status bg-status-medium/10 text-status-medium">Perlu Follow-up</span>
+                  <span class="patient-risk text-status-medium">
+                    <span class="material-symbols-outlined">warning</span>
+                    Sedang
+                  </span>
+                </button>
+                <button class="patient-row" type="button" data-patient-id="budi" aria-pressed="false">
+                  <span class="patient-initials bg-red-50 text-error">BH</span>
+                  <span class="patient-copy">
+                    <span class="patient-name">Budi Hartono</span>
+                    <span class="patient-meta">RM-443211 • 62Th • Laki-laki</span>
+                  </span>
+                  <span class="patient-status bg-error/10 text-error">Hasil Abnormal</span>
+                  <span class="patient-risk text-error">
+                    <span class="material-symbols-outlined">report</span>
+                    Tinggi
+                  </span>
+                </button>
+                <button class="patient-row" type="button" data-patient-id="citra" aria-pressed="false">
+                  <span class="patient-initials bg-green-50 text-status-low">CD</span>
+                  <span class="patient-copy">
+                    <span class="patient-name">Citra Dewi</span>
+                    <span class="patient-meta">RM-112998 • 28Th • Perempuan</span>
+                  </span>
+                  <span class="patient-status bg-primary/10 text-primary">Jadwal Kontrol</span>
+                  <span class="patient-risk text-status-medium">
+                    <span class="material-symbols-outlined">error</span>
+                    Sedang
+                  </span>
+                </button>
+                <button class="patient-row" type="button" data-patient-id="siti" aria-pressed="false">
+                  <span class="patient-initials bg-orange-50 text-amber-700">SR</span>
+                  <span class="patient-copy">
+                    <span class="patient-name">Siti Rahmawati</span>
+                    <span class="patient-meta">RM-442218 • 42Th • Perempuan</span>
+                  </span>
+                  <span class="patient-status bg-amber-100 text-amber-800">Post-op H+3</span>
+                  <span class="patient-risk text-status-medium">
+                    <span class="material-symbols-outlined">warning</span>
+                    Sedang
+                  </span>
+                </button>
+                <button class="patient-row" type="button" data-patient-id="ahmad" aria-pressed="false">
+                  <span class="patient-initials bg-slate-100 text-slate-700">AP</span>
+                  <span class="patient-copy">
+                    <span class="patient-name">Ahmad Putra</span>
+                    <span class="patient-meta">RM-110092 • 65Th • Laki-laki</span>
+                  </span>
+                  <span class="patient-status bg-mint-success/20 text-status-low">Stabil</span>
+                  <span class="patient-risk text-status-low">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    Rendah
+                  </span>
+                </button>
+              </div>
+            </section>
+
+            <section class="patient-detail-panel col-span-12 xl:col-span-5 bg-surface-container-lowest rounded-2xl border border-border-subtle shadow-sm overflow-hidden">
+              <div class="patient-detail-hero">
+                <div class="flex items-start gap-4">
+                  <div class="patient-detail-avatar" data-patient-field="initials">AS</div>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex items-center justify-between gap-3">
+                      <h2 class="font-headline-md text-headline-md text-on-background truncate" data-patient-field="name">Anita Sari</h2>
+                      <span class="patient-plan" data-patient-field="plan">Mandaya Care Plus</span>
+                    </div>
+                    <p class="text-on-surface-variant mt-1" data-patient-field="identity">45 thn • Perempuan • MRN: MRN-992103</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      <span class="patient-pill bg-mint-success/20 text-status-low" data-patient-field="status">Care Plan Aktif</span>
+                      <span class="patient-pill bg-status-medium/10 text-status-medium" data-patient-field="risk">Risiko Disengagement Sedang</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-6 flex flex-col gap-5">
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="patient-metric">
+                    <span>Tekanan darah</span>
+                    <strong data-patient-field="bloodPressure">135/85</strong>
+                    <small>mmHg</small>
+                  </div>
+                  <div class="patient-metric">
+                    <span>Kepatuhan obat</span>
+                    <strong data-patient-field="adherence">85%</strong>
+                    <small>7 hari terakhir</small>
+                  </div>
+                </div>
+
+                <div class="patient-support-grid">
+                  <div class="support-info-card">
+                    <div class="support-info-header">
+                      <span class="material-symbols-outlined">receipt_long</span>
+                      <strong>Billing Care Plus</strong>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Status</span>
+                      <b data-patient-field="billingStatus">Deadline mendekat</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Transaksi</span>
+                      <b data-patient-field="transactionDate">6 Sep 2026</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Batas H+7</span>
+                      <b data-patient-field="validationDeadline">13 Sep 2026</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Sisa waktu</span>
+                      <b data-patient-field="validationTimeLeft">1 hari</b>
+                    </div>
+                  </div>
+                  <div class="support-info-card">
+                    <div class="support-info-header">
+                      <span class="material-symbols-outlined">redeem</span>
+                      <strong>Care Plus Reward</strong>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Tier</span>
+                      <b data-patient-field="loyaltyTier">Prestige</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Points</span>
+                      <b data-patient-field="loyaltyPoints">12.450</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Redemption</span>
+                      <b data-patient-field="recentReward">Tumbler Mandaya</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Metode</span>
+                      <b data-patient-field="rewardMethod">Kirim ke alamat</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Status</span>
+                      <b data-patient-field="rewardStatus">Sedang diproses</b>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="patient-insight">
+                  <div class="flex items-center gap-2 text-primary font-label-bold text-label-bold uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                    AI Insight
+                  </div>
+                  <p data-patient-field="insight">Pasien melewatkan jadwal kontrol 3 hari lalu dan memiliki tren peningkatan tekanan darah ringan pada telemonitoring.</p>
+                </div>
+
+                <div class="patient-action-card">
+                  <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed">Next Best Action</span>
+                  <strong data-patient-field="action">Hubungi via WhatsApp</strong>
+                  <p data-patient-field="actionNote">Tanyakan kendala kehadiran dan jadwalkan ulang secepatnya.</p>
+                </div>
+
+                <div class="patient-timeline">
+                  <h3 class="font-title-sm text-title-sm text-on-background">Riwayat terbaru</h3>
+                  <div class="timeline-item">
+                    <span class="timeline-dot bg-primary"></span>
+                    <div>
+                      <strong data-patient-field="latestEvent">Jadwal kontrol terlewat</strong>
+                      <p data-patient-field="latestEventNote">Konsultasi rutin Kardiologi • 3 hari lalu</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot bg-surface-container-high"></span>
+                    <div>
+                      <strong data-patient-field="previousEvent">Echo jantung selesai</strong>
+                      <p data-patient-field="previousEventNote">Pemeriksaan selesai pada 14 Okt 2023</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot bg-status-medium"></span>
+                    <div>
+                      <strong data-patient-field="loyaltyEvent">Reward redeemed</strong>
+                      <p data-patient-field="loyaltyEventNote">Tumbler Mandaya dipilih untuk dikirim ke alamat</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot bg-primary"></span>
+                    <div>
+                      <strong data-patient-field="billingEvent">Billing validation pending</strong>
+                      <p data-patient-field="billingEventNote">Window validasi H+7 berakhir besok</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                  <button class="patient-primary-action" type="button">
+                    <span class="material-symbols-outlined text-[18px]">chat</span>
+                    Hubungi WA
+                  </button>
+                  <button class="patient-secondary-action" type="button">
+                    <span class="material-symbols-outlined text-[18px]">assignment</span>
+                    Buat Tugas
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="assets/js/pages.js?v=20260901-timeline-linked"></script>
+    <script src="assets/js/app.js?v=20260901-timeline-linked"></script>
+  </body>
+</html>
