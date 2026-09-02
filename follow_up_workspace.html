@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Mandaya Follow-up Workspace</title><script>try{if(localStorage.getItem("mandaya-sidebar-open")==="true")document.documentElement.classList.add("sidebar-open-preload")}catch(e){}</script><link href="assets/css/tailwind.css?v=20260901-brave-layout" rel="stylesheet"/><link href="assets/css/base.css?v=20260901-brave-layout" rel="stylesheet"/></head><body data-page="follow-up" class="bg-background font-body-base text-on-background min-h-screen"><aside class="app-sidebar" aria-label="Primary navigation">
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Mandaya Follow-up Workspace</title><script>try{if(localStorage.getItem("mandaya-sidebar-open")==="true")document.documentElement.classList.add("sidebar-open-preload")}catch(e){}</script><link href="assets/css/tailwind.css?v=20260902-followup-task-context" rel="stylesheet"/><link href="assets/css/base.css?v=20260902-followup-task-context" rel="stylesheet"/></head><body data-page="follow-up" class="bg-background font-body-base text-on-background min-h-screen"><aside class="app-sidebar" aria-label="Primary navigation">
   <div class="app-sidebar-inner">
     <div class="app-sidebar-main custom-scrollbar">
       <div class="app-sidebar-brand">
@@ -52,7 +52,7 @@
 <h1 class="font-display-lg text-display-lg text-on-surface mb-1">Follow-up Workspace</h1>
 <p class="font-body-base text-body-base text-on-surface-variant flex items-center gap-2">
 <span class="w-2 h-2 rounded-full bg-mint-success"></span>
-          AI Orchestrator aktif: 14 tugas prioritas antre
+          AI Orchestrator aktif: 15 tugas prioritas antre
         </p>
 </div>
 </div>
@@ -72,12 +72,11 @@
 <div class="col-span-3 flex flex-col bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-border-subtle h-full">
 <div class="p-4 border-b border-border-subtle bg-surface-container-low flex justify-between items-center sticky top-0">
 <h2 class="font-title-sm text-title-sm text-on-surface">Antrean Tugas</h2>
-<span class="bg-primary/10 text-primary font-label-bold text-label-bold px-2 py-1 rounded-full">14 tersisa</span>
+<span class="bg-primary/10 text-primary font-label-bold text-label-bold px-2 py-1 rounded-full">15 tersisa</span>
 </div>
 <div class="flex-1 overflow-y-auto p-3 space-y-3 custom-scrollbar">
 <!-- Task Card 1 (Active) -->
-<div class="bg-primary/5 rounded-lg p-3 cursor-pointer ring-1 ring-primary transition-all relative overflow-hidden group">
-<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="followup-task-card is-active group" role="button" tabindex="0" data-followup-task="anita-postop" aria-pressed="true">
 <div class="flex justify-between items-start mb-2 pl-2">
 <span class="bg-pink-alert text-status-high text-[10px] font-label-bold px-2 py-0.5 rounded-full flex items-center gap-1">
 <span class="material-symbols-outlined text-[10px]">priority_high</span> Prioritas Tinggi
@@ -93,8 +92,25 @@
 </div>
 </div>
 </div>
+<!-- Task Card: Feedback Request -->
+<div class="followup-task-card group" role="button" tabindex="0" data-followup-task="citra-feedback" aria-pressed="false">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-surface-accent text-primary text-[10px] font-label-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">rate_review</span> Minta Feedback
+            </span>
+<span class="text-[10px] text-on-surface-variant font-label-sm">Hari ini, 16:00</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-on-surface mb-0.5 truncate">Citra Dewi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mb-2">Kirim survei NPS pasca follow-up</p>
+<div class="flex items-center gap-2 text-[11px] text-primary">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+<span class="font-label-bold">AI: WhatsApp dulu, telepon bila tidak respons</span>
+</div>
+</div>
+</div>
 <!-- Task Card 2: Billing Validation -->
-<div class="bg-surface hover:bg-surface-container rounded-lg p-3 cursor-pointer transition-all border border-transparent hover:border-border-subtle group">
+<div class="followup-task-card group" role="button" tabindex="0" data-followup-task="anita-billing" aria-pressed="false">
 <div class="flex justify-between items-start mb-2">
 <span class="bg-pink-alert text-status-high text-[10px] font-label-bold px-2 py-0.5 rounded-full flex items-center gap-1">
 <span class="material-symbols-outlined text-[10px]">receipt_long</span> Validasi Billing
@@ -111,7 +127,7 @@
 </div>
 </div>
 <!-- Task Card 3: Reward Delivery -->
-<div class="bg-surface hover:bg-surface-container rounded-lg p-3 cursor-pointer transition-all border border-transparent hover:border-border-subtle group">
+<div class="followup-task-card group" role="button" tabindex="0" data-followup-task="budi-reward" aria-pressed="false">
 <div class="flex justify-between items-start mb-2">
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-label-bold px-2 py-0.5 rounded-full flex items-center gap-1">
 <span class="material-symbols-outlined text-[10px]">redeem</span> Reward Issue
@@ -128,7 +144,7 @@
 </div>
 </div>
 <!-- Task Card 2 -->
-<div class="bg-surface hover:bg-surface-container rounded-lg p-3 cursor-pointer transition-all border border-transparent hover:border-border-subtle group">
+<div class="followup-task-card group" role="button" tabindex="0" data-followup-task="budi-medication" aria-pressed="false">
 <div class="flex justify-between items-start mb-2">
 <span class="bg-surface-accent text-primary text-[10px] font-label-bold px-2 py-0.5 rounded-full">
               Prioritas Sedang
@@ -145,7 +161,7 @@
 </div>
 </div>
 <!-- Task Card 3 -->
-<div class="bg-surface hover:bg-surface-container rounded-lg p-3 cursor-pointer transition-all border border-transparent hover:border-border-subtle group">
+<div class="followup-task-card group" role="button" tabindex="0" data-followup-task="citra-therapy" aria-pressed="false">
 <div class="flex justify-between items-start mb-2">
 <span class="bg-mint-success text-status-low text-[10px] font-label-bold px-2 py-0.5 rounded-full">
               Prioritas Rendah
@@ -169,14 +185,11 @@
 <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full pointer-events-none"></div>
 <div class="p-6 border-b border-border-subtle bg-surface-container-low flex justify-between items-center sticky top-0 z-10">
 <div>
-<h2 class="font-headline-md text-headline-md text-on-surface">Follow-up: Anita Sari</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">ID: PA-2023-0892 • P, 45 Tahun</p>
+<h2 class="font-headline-md text-headline-md text-on-surface" data-followup-field="title">Follow-up: Anita Sari</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant" data-followup-field="identity">ID: PA-2023-0892 • P, 45 Tahun</p>
 </div>
 <div class="flex gap-2">
-<button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-label-bold text-label-bold transition-colors flex items-center gap-2 shadow-sm">
-<span class="material-symbols-outlined text-[18px]">phone</span>
-            Telepon
-          </button>
+<button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-label-bold text-label-bold transition-colors flex items-center gap-2 shadow-sm" type="button"><span class="material-symbols-outlined text-[18px]" data-followup-field="primaryIcon">phone</span><span data-followup-field="primaryAction">Telepon</span></button>
 </div>
 </div>
 <div class="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
@@ -185,16 +198,83 @@
 <div class="absolute -right-4 -top-4 w-16 h-16 bg-primary/10 rounded-full blur-xl"></div>
 <div class="flex items-center gap-2 mb-3 relative z-10">
 <span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
-<h3 class="font-title-sm text-title-sm text-primary">Rekomendasi Skrip Percakapan</h3>
+<h3 class="font-title-sm text-title-sm text-primary" data-followup-field="scriptTitle">Skrip follow-up pasca operasi</h3>
 </div>
-<div class="bg-surface-container-lowest/80 p-4 rounded-lg font-body-base text-body-base text-on-surface-variant leading-relaxed shadow-sm italic relative z-10">
-            "Selamat pagi Ibu Anita, saya Maya dari Mandaya Hospital. Kami menghubungi untuk menanyakan kondisi Ibu setelah operasi 2 hari yang lalu. Apakah ada keluhan nyeri pada area jahitan, atau demam hari ini?"
-          </div>
+<div class="bg-surface-container-lowest/80 p-4 rounded-lg font-body-base text-body-base text-on-surface-variant leading-relaxed shadow-sm italic relative z-10" data-followup-field="scriptText">"Selamat pagi Ibu Anita, saya Maya dari Mandaya Hospital. Kami menghubungi untuk menanyakan kondisi Ibu setelah operasi 2 hari yang lalu. Apakah ada keluhan nyeri pada area jahitan, demam, atau obat yang belum cocok?"</div>
+</div>
+<!-- Activity Script Library -->
+<div class="followup-script-library">
+<div class="followup-script-library-header">
+<div>
+<span class="font-label-bold text-[10px] text-primary uppercase tracking-wider" data-followup-field="scenarioLabel">Prioritas Tinggi</span>
+<h3 class="font-title-sm text-title-sm text-on-surface mt-1" data-followup-field="scenarioTitle">Pasca operasi - 48 jam</h3>
+</div>
+<span class="followup-script-note">Skenario terpilih</span>
+</div>
+<div class="followup-script-grid followup-script-grid-single">
+<article class="followup-script-card is-contextual">
+<span class="material-symbols-outlined" data-followup-field="scenarioIcon">priority_high</span>
+<div>
+<strong data-followup-field="scenarioTitle">Pasca operasi - 48 jam</strong>
+<p data-followup-field="scenarioText">Gunakan panggilan telepon karena task ini klinis dan butuh jawaban cepat. Bila ada nyeri berat, demam, atau luka basah, lanjutkan ke eskalasi medis.</p>
+</div>
+</article>
+</div>
 </div>
 <!-- Catatan Follow-up -->
 <div>
 <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2 uppercase tracking-wide">Catatan Interaksi</label>
-<textarea class="w-full h-32 bg-surface border border-border-subtle rounded-lg p-4 font-body-base text-body-base text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none placeholder:text-outline-variant transition-all" placeholder="Ketik catatan medis atau respons pasien di sini..."></textarea>
+<textarea class="w-full h-32 bg-surface border border-border-subtle rounded-lg p-4 font-body-base text-body-base text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none placeholder:text-outline-variant transition-all" data-followup-note placeholder="Catat keluhan pasien, skala nyeri, suhu tubuh, kondisi luka, dan respons terhadap obat..."></textarea>
+</div>
+<!-- Feedback Capture -->
+<div class="feedback-capture-card">
+<div class="flex items-center justify-between gap-4 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">reviews</span>
+<h3 class="font-title-sm text-title-sm text-primary">Permintaan & Catatan Feedback</h3>
+</div>
+<span class="feedback-source-pill">Chat / Telepon</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Setelah follow-up selesai, perawat bisa meminta feedback via WhatsApp. Jika via telepon, skor dan keluhan dicatat manual lalu Mandaya AI menilai apakah perlu alert.</p>
+<div class="feedback-example-grid">
+<article class="feedback-example-card">
+<span>Contoh WA</span>
+<strong>Survei NPS rawat jalan</strong>
+<p>"Seberapa besar kemungkinan Anda merekomendasikan Mandaya?" Jika skor 1-6, AI membuat alert recovery.</p>
+</article>
+<article class="feedback-example-card">
+<span>Contoh Telepon</span>
+<strong>Catatan keluhan discharge</strong>
+<p>Perawat mencatat skor 2/5 dan keluhan proses pulang, lalu sistem menandai risiko NPS turun.</p>
+</article>
+<article class="feedback-example-card">
+<span>Contoh Recovery</span>
+<strong>Follow-up ulang PEO</strong>
+<p>Pasien dihubungi ulang, solusi dicatat, dan alert ditutup setelah pasien menyatakan masalah selesai.</p>
+</article>
+</div>
+<div class="grid grid-cols-3 gap-3 mb-4">
+<button class="feedback-action-button" type="button"><span class="material-symbols-outlined text-[16px]">send</span>Kirim Survei WA</button>
+<button class="feedback-action-button" type="button"><span class="material-symbols-outlined text-[16px]">call</span>Catat Telepon</button>
+<button class="feedback-action-button is-alert" type="button"><span class="material-symbols-outlined text-[16px]">notification_important</span>Buat Alert Jika Buruk</button>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<label class="feedback-score-option">
+<input class="sr-only peer" name="feedback-score" type="radio" />
+<span>Baik</span>
+<strong>4-5</strong>
+</label>
+<label class="feedback-score-option">
+<input class="sr-only peer" name="feedback-score" type="radio" checked />
+<span>Perlu Dipantau</span>
+<strong>3</strong>
+</label>
+<label class="feedback-score-option">
+<input class="sr-only peer" name="feedback-score" type="radio" />
+<span>Buruk</span>
+<strong>1-2</strong>
+</label>
+</div>
 </div>
 <!-- Hasil Follow-up -->
 <div>
@@ -228,17 +308,23 @@
 </div>
 </div>
 <!-- Action Footer -->
-<div class="p-4 border-t border-border-subtle bg-surface-container-low flex justify-between items-center sticky bottom-0 z-10">
-<button class="bg-surface hover:bg-surface-container border border-error text-error px-5 py-2.5 rounded-lg font-label-bold text-label-bold transition-colors flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px]">warning</span>
-            Eskalasi Medis
-          </button>
-<div class="flex gap-3">
-<button class="bg-surface hover:bg-surface-container border border-primary text-primary px-5 py-2.5 rounded-lg font-label-bold text-label-bold transition-colors flex items-center gap-2 shadow-sm">
+<div class="followup-action-footer" data-followup-actions>
+<div class="followup-action-row">
+<button class="followup-action-btn followup-action-secondary" type="button">
 <span class="material-symbols-outlined text-[18px]">chat</span>
             Kirim WhatsApp
           </button>
-<button class="bg-primary hover:bg-primary/90 text-on-primary px-6 py-2.5 rounded-lg font-label-bold text-label-bold transition-colors flex items-center gap-2 shadow-md">
+<button class="followup-action-btn followup-action-secondary" type="button">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+            Minta Feedback
+          </button>
+</div>
+<div class="followup-action-row followup-action-row-final">
+<button class="followup-action-btn followup-action-danger" type="button">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+            Eskalasi Medis
+          </button>
+<button class="followup-action-btn followup-action-primary" type="button">
 <span class="material-symbols-outlined text-[18px]">check_circle</span>
             Tandai Selesai
           </button>
@@ -258,7 +344,7 @@
 <span class="material-symbols-outlined text-[16px] text-primary">mood</span>
 <span class="font-label-bold text-label-bold text-primary uppercase">Analisis Sentimen</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Interaksi terakhir menunjukkan tingkat kecemasan sedang terkait nyeri pasca operasi.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant"><span data-followup-field="sentiment">Interaksi terakhir menunjukkan kecemasan sedang terkait nyeri pasca operasi dan pasien belum mengirim update foto luka.</span></p>
 </div>
 <!-- Operational Support -->
 <div class="p-4 rounded-xl bg-surface border border-border-subtle">
@@ -266,30 +352,16 @@
 <span class="material-symbols-outlined text-[16px] text-primary">support_agent</span>
 <span class="font-label-bold text-label-bold text-primary uppercase">Konteks Operasional</span>
 </div>
-<div class="space-y-3">
-<div class="flex items-start justify-between gap-3">
-<span class="font-body-sm text-body-sm text-on-surface-variant">Billing H+7</span>
-<span class="font-label-bold text-label-bold text-status-high text-right">Besok, 23:59</span>
-</div>
-<div class="flex items-start justify-between gap-3">
-<span class="font-body-sm text-body-sm text-on-surface-variant">Reward Budi Hartono</span>
-<span class="font-label-bold text-label-bold text-status-medium text-right">Delivery gagal</span>
-</div>
-<div class="pt-3 border-t border-border-subtle">
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Aksi tersedia untuk PEO:</p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-primary/10 text-primary font-label-bold text-[10px] px-2 py-1 rounded-full">Hubungi Pasien</span>
-<span class="bg-primary/10 text-primary font-label-bold text-[10px] px-2 py-1 rounded-full">Perbarui Alamat</span>
-<span class="bg-primary/10 text-primary font-label-bold text-[10px] px-2 py-1 rounded-full">Ubah Metode Redemption</span>
-<span class="bg-primary/10 text-primary font-label-bold text-[10px] px-2 py-1 rounded-full">Tandai Selesai</span>
-</div>
-</div>
+<div class="space-y-3" data-followup-context></div>
+<div class="pt-3 border-t border-border-subtle mt-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Aksi yang relevan:</p>
+<div class="flex flex-wrap gap-2" data-followup-chips></div>
 </div>
 </div>
 <!-- Riwayat Interaksi -->
 <div>
 <h3 class="font-label-bold text-label-bold text-on-surface-variant mb-4 uppercase tracking-wide">Riwayat Terakhir</h3>
-<div class="relative pl-3 border-l-2 border-border-subtle space-y-4">
+<div class="relative pl-3 border-l-2 border-border-subtle space-y-4" data-followup-history>
 <div class="relative">
 <div class="absolute -left-[19px] top-1 w-3 h-3 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
 <div class="text-[10px] text-on-surface-variant font-label-bold mb-1">Kemarin, 14:00</div>
@@ -312,4 +384,4 @@
 </div>
 </div>
 </div>
-</main></div><script src="assets/js/pages.js?v=20260901-brave-layout"></script><script src="assets/js/app.js?v=20260901-brave-layout"></script></body></html>
+</main></div><script src="assets/js/pages.js?v=20260902-followup-task-context"></script><script src="assets/js/app.js?v=20260902-followup-task-context"></script></body></html>

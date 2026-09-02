@@ -11,8 +11,8 @@
         }
       } catch (e) {}
     </script>
-    <link href="assets/css/tailwind.css?v=20260901-brave-layout" rel="stylesheet" />
-    <link href="assets/css/base.css?v=20260901-brave-layout" rel="stylesheet" />
+    <link href="assets/css/tailwind.css?v=20260902-followup-task-context" rel="stylesheet" />
+    <link href="assets/css/base.css?v=20260902-followup-task-context" rel="stylesheet" />
   </head>
   <body data-page="patients" class="bg-background font-body-base text-on-background min-h-screen">
     <aside class="app-sidebar" aria-label="Primary navigation">
@@ -246,6 +246,28 @@
                       <b data-patient-field="rewardStatus">Sedang diproses</b>
                     </div>
                   </div>
+                  <div class="support-info-card feedback-info-card">
+                    <div class="support-info-header">
+                      <span class="material-symbols-outlined">reviews</span>
+                      <strong>Feedback Pasien</strong>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Skor</span>
+                      <b data-patient-field="feedbackScore">Menunggu feedback</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Sumber</span>
+                      <b data-patient-field="feedbackSource">Survei WA belum dikirim</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Catatan</span>
+                      <b data-patient-field="feedbackNote">Action: minta feedback setelah follow-up hari ini</b>
+                    </div>
+                    <div class="support-info-row">
+                      <span>Status alert</span>
+                      <b data-patient-field="feedbackAlert">Belum ada alert</b>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="patient-insight">
@@ -292,12 +314,23 @@
                       <p data-patient-field="billingEventNote">Window validasi H+7 berakhir besok</p>
                     </div>
                   </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot bg-error"></span>
+                    <div>
+                      <strong data-patient-field="feedbackEvent">Feedback requested</strong>
+                      <p data-patient-field="feedbackEventNote">Survei NPS disiapkan setelah follow-up WA selesai</p>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="flex flex-wrap gap-3">
                   <button class="patient-primary-action" type="button">
                     <span class="material-symbols-outlined text-[18px]">chat</span>
                     Hubungi WA
+                  </button>
+                  <button class="patient-secondary-action" type="button">
+                    <span class="material-symbols-outlined text-[18px]">rate_review</span>
+                    Minta Feedback
                   </button>
                   <button class="patient-secondary-action" type="button">
                     <span class="material-symbols-outlined text-[18px]">assignment</span>
@@ -310,7 +343,7 @@
         </div>
       </main>
     </div>
-    <script src="assets/js/pages.js?v=20260901-brave-layout"></script>
-    <script src="assets/js/app.js?v=20260901-brave-layout"></script>
+    <script src="assets/js/pages.js?v=20260902-followup-task-context"></script>
+    <script src="assets/js/app.js?v=20260902-followup-task-context"></script>
   </body>
 </html>
